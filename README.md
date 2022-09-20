@@ -141,14 +141,10 @@ Arquivos GFF são similares aos BED e têm 9 colunas, todas obrigatórias:
 
 Vamos explorar os bancos de dados biológicos a partir de um problema dado:
 
-Vitaminas são compostos orgânicos que precisam ser obtidos através da dieta:
+Vitaminas são compostos orgânicos que precisam ser obtidos através da dieta. A vitamina C é produzida no fígado por mamíferos e alguns pássaros e nos rins por peixes, anfíbios, repteis e alguns pássaros. Ela é solúvel em água, tem propriedades antioxidantes e é essencial na síntese de colágeno. Vitaminas que humanos não sintetiza ou não sintetiza em quantidade suficiente: A, B1 (thiamine), B2 (riboflavin), B5 (pantothenic acid), B6 (pyridoxine), B7 (biotin), B9 (folate), B12 (cobalamin), E, K.
 
 * O organismo não produz as enzimas necessárias para sintetizá-la
 * Não são produzidas em quantidade suficiente
-
-Vitaminas que humanos não conseguem sintetizar: A, B1 (thiamine), B2 (riboflavin), B5 (pantothenic acid), B6 (pyridoxine), B7 (biotin), B9 (folate), B12 (cobalamin), E, K.
-
-A vitamina C é produzida no fígado por mamíferos e alguns pássaros e nos rins por peixes, anfíbios, repteis e alguns pássaros. Ela é solúvel em água, tem propriedades antioxidantes e é essencial na síntese de colágeno.
 
 ---
 
@@ -157,11 +153,13 @@ A vitamina C é produzida no fígado por mamíferos e alguns pássaros e nos rin
 ---
 Qual a matéria prima para a vitamina C ?
 
-Como essa materia prima é transformada no organismo?
+Como essa materia prima é transformada no organismo ?
 
 Qual a enzima que inicia o processo ?
 
 Como é identificada uma e de onde vem a enzima UTP---glucose-1-phosphate uridylyltransferase?
+
+#### Aqui uma série de links para diversos bancos de dados de onde é possível obter essas respostas.
 
 1. [BRENDA Database: 2.7.7.9](https://www.brenda-enzymes.org/enzyme.php?ecno=2.7.7.9)
 2. [KEGG pathway Amino sugar and nucleotide sugar metabolism](https://www.genome.jp/kegg-bin/show_pathway?map00520+2.7.7.9)
@@ -172,77 +170,9 @@ Como é identificada uma e de onde vem a enzima UTP---glucose-1-phosphate uridyl
 * [PubChem (D-Glucose 1-phosphate)](https://pubchem.ncbi.nlm.nih.gov/substance/3403)
 6. [KEGG Enzyme UTP---glucose-1-phosphate uridylyltransferase: 2.7.7.9](https://www.genome.jp/dbget-bin/www_bget?ec:2.7.7.9)
 7. [KEGG Gene UGP2](https://www.genome.jp/dbget-bin/www_bget?hsa:7360)
-* [Uniprot](https://www.uniprot.org/uniprot/Q16851)
-* [PDB](https://www.genome.jp/dbget-bin/www_bget?pdb:4R7P)
+8. [Uniprot](https://www.uniprot.org/uniprot/Q16851)
+9. [PDB](https://www.genome.jp/dbget-bin/www_bget?pdb:4R7P)
 
-## Acesso aos dados via API com Biopython
+#### Aqui um Python notebook com acesso aos dados de alguns desses bancos via scripts
 
-### Obter dados de uma enzima
-
-```python
-from Bio.KEGG import REST
-from Bio.KEGG import Enzyme
-request = REST.kegg_get("ec:2.7.7.9")
-open("ec_2.7.7.9.txt", "w").write(request.read())
-records = Enzyme.parse(open("ec_2.7.7.9.txt"))
-record = list(records)[0]
-record.classname
-record.entry
-```
-
-### Obter todos os genes relacionados com a via metabólica de'vitamina C
-
-```python
-from Bio.KEGG import REST
-
-human_pathways = REST.kegg_list("pathway", "hsa").read()
-
-# Filtar para humanos, Ascorbate
-Ascorbate_pathways = []
-for line in human_pathways.rstrip().split("\n"):
-    entry, description = line.split("\t")
-    if "Ascorbate" in description:
-        Ascorbate_pathways.append(entry)
-
-# Pegar genes da via de Ascorbate e adicionar em uma lista
-Ascorbate_genes = [] 
-for pathway in Ascorbate_pathways:
-    pathway_file = REST.kegg_get(pathway).read()  # for each pathway
-
-    # Percorrer o pathway
-    current_section = None
-    for line in pathway_file.rstrip().split("\n"):
-        section = line[:12].strip()  # nomes na 12a coluna
-        if not section == "":
-            current_section = section
-        
-        if current_section == "GENE":
-            gene_identifiers, gene_description = line[12:].split("; ")
-            gene_id, gene_symbol = gene_identifiers.split()
-
-            if not gene_symbol in Ascorbate_genes:
-                Ascorbate_genes.append(gene_symbol)
-
-print("Existe(m) %d vias de Ascorbate e %d genes relacionados.\\ OS genes são:" % \
-      (len(Ascorbate_pathways), len(Ascorbate_genes)))
-print(", ".join(Ascorbate_genes)) 
-```
-
-### Obter detalhes da enzima UTP---glucose-1-phosphate uridylyltransferase   
-
-```python
-from Bio import ExPASy
-from Bio import SeqIO
-with ExPASy.get_sprot_raw("Q16851") as handle:
-    seq_record = SeqIO.read(handle, "swiss")
-print(seq_record.id)
-print(seq_record.name)
-print(seq_record.description)
-print(repr(seq_record.seq))
-print("Length %i" % len(seq_record))
-print(seq_record.annotations["keywords"])
-```    
-
-### Uniprot API
-
-[Uniprot API](https://www.uniprot.org/help/programmatic_access)
+[Python notebook](https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/Python_notebook_minicurso_bancos_de_dados_biologicos.ipynb)
