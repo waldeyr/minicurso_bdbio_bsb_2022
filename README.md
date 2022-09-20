@@ -1,4 +1,4 @@
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/bsb2022.png" alt="Brazilian Symposium on Bioinformatics" width="600"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/bsb2022.png" alt="Brazilian Symposium on Bioinformatics" width="600"/>
 
 # Brazilian Symposium on Bioinformatics Minicurso: Bancos de Dados Biológicos
 
@@ -8,19 +8,19 @@
 
 ### Dogma
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/dogma.jpg" width="800" alt="https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/dogma.jpg" width="800" alt="https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology"/>
 
 ---
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/dogma_tt.png" width="800"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/dogma_tt.png" width="800"/>
 
 ---
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/dna01.png" width="800" alt="https://www.my46.org/intro/what-is-dna"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/dna01.png" width="800" alt="https://www.my46.org/intro/what-is-dna"/>
 
 ---
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/dna02.png" width="800" alt="https://www.my46.org/intro/what-is-dna"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/dna02.png" width="800" alt="https://www.my46.org/intro/what-is-dna"/>
 
 ---
 
@@ -40,7 +40,7 @@ Não sabemos:
 ## Dados de Sequenciamento
 
 ### FASTQ
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/fastq.png" width="600"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/fastq.png" width="600"/>
 Exemplo de identificador Illumina:
 
 * @HWUSI-EAS100R:6:73:941:1973#0/1
@@ -61,7 +61,7 @@ Exemplo de identificador Illumina:
 
 ---
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/phred.png" width="600"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/phred.png" width="600"/>
 
 ---
 
@@ -71,11 +71,11 @@ A qualidade de cada nucleotídeo sequenciado é representada pelo caractere corr
 
 ---
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/filtragem.png" width="800"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/filtragem.png" width="800"/>
 
 ### FASTA
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/fasta.png" width="800"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/fasta.png" width="800"/>
 
 ---
 
@@ -96,11 +96,11 @@ BAM (Binary Alignment/MAP) é uma versão comprimida de um alinhamento das reads
 
 ---
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/igv.png" width="800"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/igv.png" width="800"/>
 
 ### BED
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/bed.png" width="800"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/bed.png" width="800"/>
 
 ---
 
@@ -152,7 +152,7 @@ A vitamina C é produzida no fígado por mamíferos e alguns pássaros e nos rin
 
 ---
 
-<img src="https://github.com/waldeyr/bsb2019/blob/master/img/problema.png" width="600" alt="10.3389/fphys.2015.00397"/>
+<img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/problema.png" width="600" alt="10.3389/fphys.2015.00397"/>
 
 ---
 Qual a matéria prima para a vitamina C ?
@@ -209,7 +209,7 @@ Ascorbate_genes = []
 for pathway in Ascorbate_pathways:
     pathway_file = REST.kegg_get(pathway).read()  # for each pathway
 
-    # Iterar sobre o pathway
+    # Percorrer o pathway
     current_section = None
     for line in pathway_file.rstrip().split("\n"):
         section = line[:12].strip()  # nomes na 12a coluna
