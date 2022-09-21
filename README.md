@@ -1,10 +1,13 @@
 <img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/bsb2022.png" alt="Brazilian Symposium on Bioinformatics" width="600"/>
 
-# Brazilian Symposium on Bioinformatics Minicurso: Bancos de Dados Biológicos
+# :school: Brazilian Symposium on Bioinformatics 
+
+## :point_right: Minicurso de Bancos de Dados Biológicos
+
 
 [Waldeyr Mendes Cordeiro da Silva](http://lattes.cnpq.br/2391349697609978)
 
-## Introdução à Biologia Molecular
+## :notebook_with_decorative_cover: Introdução à Biologia Molecular
 
 ### Dogma
 
@@ -37,7 +40,7 @@ Não sabemos:
 * A posição relativa ao início da fita
 
 
-## Dados de Sequenciamento
+## :notebook_with_decorative_cover: Dados de Sequenciamento
 
 ### FASTQ
 <img src="https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/img/fastq.png" width="600"/>
@@ -137,7 +140,8 @@ Arquivos GFF são similares aos BED e têm 9 colunas, todas obrigatórias:
 9. *attribute* → muda conforme a versão do GFF (GFF1, GFF2, GFF3) e denota texto descritivo do significado biológico
 
 
-## Bancos de Dados Biológicos
+## :notebook_with_decorative_cover: Bancos de Dados Biológicos
+
 
 Vamos explorar os bancos de dados biológicos a partir de um problema dado:
 
@@ -165,14 +169,16 @@ Como é identificada uma e de onde vem a enzima UTP---glucose-1-phosphate uridyl
 2. [KEGG pathway Amino sugar and nucleotide sugar metabolism](https://www.genome.jp/kegg-bin/show_pathway?map00520+2.7.7.9)
 3. [KEGG Reaction](https://www.genome.jp/dbget-bin/www_bget?rn:R00289)
 4. [KEGG Compounds (Uridine triphosphate)](https://www.genome.jp/dbget-bin/www_bget?cpd:C00075)
-* [PubChem (Uridine triphosphate)](https://pubchem.ncbi.nlm.nih.gov/substance/3375)
-5. [KEGG Compounds (D-Glucose 1-phosphate)](https://www.genome.jp/dbget-bin/www_bget?cpd:C00103)
-* [PubChem (D-Glucose 1-phosphate)](https://pubchem.ncbi.nlm.nih.gov/substance/3403)
-6. [KEGG Enzyme UTP---glucose-1-phosphate uridylyltransferase: 2.7.7.9](https://www.genome.jp/dbget-bin/www_bget?ec:2.7.7.9)
-7. [KEGG Gene UGP2](https://www.genome.jp/dbget-bin/www_bget?hsa:7360)
-8. [Uniprot](https://www.uniprot.org/uniprot/Q16851)
-9. [PDB](https://www.genome.jp/dbget-bin/www_bget?pdb:4R7P)
+5. [PubChem (Uridine triphosphate)](https://pubchem.ncbi.nlm.nih.gov/substance/3375)
+6. [KEGG Compounds (D-Glucose 1-phosphate)](https://www.genome.jp/dbget-bin/www_bget?cpd:C00103)
+7. [PubChem (D-Glucose 1-phosphate)](https://pubchem.ncbi.nlm.nih.gov/substance/3403)
+8. [KEGG Enzyme UTP---glucose-1-phosphate uridylyltransferase: 2.7.7.9](https://www.genome.jp/dbget-bin/www_bget?ec:2.7.7.9)
+9. [KEGG Gene UGP2](https://www.genome.jp/dbget-bin/www_bget?hsa:7360)
+10. [Uniprot](https://www.uniprot.org/uniprot/Q16851)
+11. [PDB](https://www.genome.jp/dbget-bin/www_bget?pdb:4R7P)
+12. [Uniprot API](https://www.uniprot.org/help/programmatic_access)
 
-#### Aqui um Python notebook com acesso aos dados de alguns desses bancos via scripts
+
+#### Aqui um Python notebook com exemplos de acesso aos dados de alguns desses bancos via scripts
 
 [Python notebook](https://github.com/waldeyr/minicurso_bdbio_bsb_2022/blob/main/Python_notebook_minicurso_bancos_de_dados_biologicos.ipynb)
